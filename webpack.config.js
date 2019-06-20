@@ -1,38 +1,40 @@
-import path from 'path';
+import path from "path";
 
-import HtmlWebpackPlugin from 'html-webpack-plugin';
-import UglifyJsPlugin    from 'uglifyjs-webpack-plugin';
+import HtmlWebpackPlugin from "html-webpack-plugin";
+import UglifyJsPlugin from "uglifyjs-webpack-plugin";
 
 module.exports = {
-  entry: path.join(__dirname,'src','index.js'),
+  entry: ['babel-polyfill',path.join(__dirname, "src", "index.js")],
   output: {
-    path: path.join(__dirname,'build'),
-    filename: 'index.js'
+    path: path.join(__dirname, "build"),
+    filename: "index.js"
   },
-  mode: process.env.NODE_ENV || 'development',
+  mode: process.env.NODE_ENV || "development",
   resolve: {
-    modules: [path.resolve(__dirname, 'src'), 'node_modules']
+    modules: [path.resolve(__dirname, "src"), "node_modules"]
   },
   devServer: {
-    contentBase: path.join(__dirname,'src'),
+    contentBase: path.join(__dirname, "src")
   },
   optimization: {
-    minimizer: [new UglifyJsPlugin({
-      uglifyOptions: {
-        parallel: true,
-        cach:true,
-        compress: {
-          unused: false
+    minimizer: [
+      new UglifyJsPlugin({
+        uglifyOptions: {
+          parallel: true,
+          cach: true,
+          compress: {
+            unused: false
+          }
         }
-      }
-    })],
+      })
+    ]
   },
   module: {
     rules: [
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        use: ['babel-loader'],
+        use: ["babel-loader"]
       },
       {
         test: /\.(css|scss)$/,
@@ -44,13 +46,14 @@ module.exports = {
       },
       {
         test: /\.(jpg|jpeg|png|gif|mp3|svg)$/,
-        loaders: ['file-loader']
+        loaders: ["file-loader"]
       }
     ]
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.join(__dirname,'public','index.html')
+      template: path.join(__dirname, "public", "index.html"),
+      inject: false
     })
   ]
 };

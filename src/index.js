@@ -1,7 +1,8 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import 'semantic-ui-css/semantic.min.css'
+import React from "react";
+import ReactDOM from "react-dom";
+// import 'babel-polyfill';
 
-import App from './routes.js';
+import "./style.css";
+import App from "./routes.js";
 
-ReactDOM.render(<App/>,document.getElementById('root'));
+ReactDOM.render(<App />, document.getElementById("root"));
