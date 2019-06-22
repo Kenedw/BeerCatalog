@@ -1,0 +1,41 @@
+
+.c-card *
+  box-sizing: border-box
+
+.c-card
+  display: inline-block
+  margin: 5px
+  cursor: pointer
+  text-align: left
+  background: #fff
+  box-shadow: 0 6px 10px -5px rgba(0, 0, 0, 0.2)
+
+  &__image
+    max-height: 150px
+    max-width: 100px
+ 
+  &__title
+    font-size: 15px
+    font-weight: 700
+    line-height: 1.2
+    margin: 0
+    padding: 0
+    text-transform: uppercase
+
+  &__intro
+    margin-bottom: 0
+
+  &__item 
+    flex: 1
+    margin: 5px
+    text-align: center
+    font-size: 1.5em
+
+.row 
+  flex-direction: row
+
+.container 
+  // max-width: 400px
+  display: flex
+  border: 1px solid #ccc
+  padding: 20px
