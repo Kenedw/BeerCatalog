@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { bindActionCreators }         from "redux";
-import { connect }                    from "react-redux";
+import { bindActionCreators } from "redux";
+import { connect } from "react-redux";
 
 import "./style.css";
 
 import { clickInformation } from "services/actions";
-import Api                  from "services/api";
-import Card                 from "components/card";
+import Api from "services/api";
+import Card from "components/card";
+import InformationPage from "pages/InformationPage";
 
 const Homepage = ({ payload, clickInformation }) => {
   const [beerList, beerListSet] = useState([]);
@@ -23,14 +24,17 @@ const Homepage = ({ payload, clickInformation }) => {
 
   return (
     <div className="ui-container">
-      {payload.open
-        : beerList.map((data, index) => {
-        return (
-          <div key={index}>
-                <Card {...data} onClick={() => clickInformation(data)} />
-          </div>
-        );
-      })}
+      {payload.open ? (
+        <InformationPage />
+      ) : (
+        beerList.map((data, index) => {
+          return (
+            <div key={index}>
+              <Card {...data} onClick={() => clickInformation(data)} />
+            </div>
+          );
+        })
+      )}
     </div>
   );
 };
