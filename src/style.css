@@ -1,8 +1,8 @@
 body {
-	font-family: monospace;
-	color: #333;
-}
-
-.ui-container{
-  margin: 20px;
+  font-family: Trebuchet MS, sans-serif;
+  color: #333;
+  background-color: #F3F33F;
+  width: 100%;
+  margin: 0 auto;
+  display: inline-block;
 }

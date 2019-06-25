@@ -1,9 +1,14 @@
 import React, { useState, useEffect } from "react";
+import { bindActionCreators }         from "redux";
+import { connect }                    from "react-redux";
 
-import Api from "services/api.js";
-import Card from "components/card";
+import "./style.css";
 
-const Homepage = () => {
+import { clickInformation } from "services/actions";
+import Api                  from "services/api";
+import Card                 from "components/card";
+
+const Homepage = ({ payload, clickInformation }) => {
   const [beerList, beerListSet] = useState([]);
 
   async function fetchData() {
@@ -17,12 +22,12 @@ const Homepage = () => {
   }, []);
 
   return (
-    <div>
-      <h1>BeerCatalog</h1>
-      {beerList.map((data, index) => {
+    <div className="ui-container">
+      {payload.open
+        : beerList.map((data, index) => {
         return (
           <div key={index}>
-            <Card {...data} />
+                <Card {...data} onClick={() => clickInformation(data)} />
           </div>
         );
       })}
@@ -30,4 +35,14 @@ const Homepage = () => {
   );
 };
 
-export default Homepage;
+const mapStateToProps = state => ({
+  payload: state.BeerReducer
+});
+
+const mapDispatchToProps = dispatch =>
+  bindActionCreators({ clickInformation }, dispatch);
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Homepage);
