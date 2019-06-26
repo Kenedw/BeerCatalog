@@ -7,6 +7,7 @@ const initialState = {
 };
 
 export const BeerReducer = (state = initialState, action) => {
+  console.log(action);
   switch (action.type) {
     case type.CLICK_SHOW_INFORMATION:
       return {
@@ -15,6 +16,10 @@ export const BeerReducer = (state = initialState, action) => {
         dataCard: action.payload.dataCard,
         open: action.payload.open
       };
+    case type.CLICK_BEER_STORE_RESET:
+      return {
+        ...initialState,
+      }
     default:
       return state;
   }

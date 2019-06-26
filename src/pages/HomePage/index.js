@@ -29,9 +29,11 @@ const Homepage = ({ payload, clickInformation }) => {
       ) : (
         beerList.map((data, index) => {
           return (
-            <div key={index}>
-              <Card {...data} onClick={() => clickInformation(data)} />
-            </div>
+            <Card
+              key={index}
+              onClick={() => clickInformation(data)}
+              {...data}
+            />
           );
         })
       )}

@@ -1,14 +1,21 @@
 import React from "react";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
+import { bindActionCreators } from "redux";
 
 import "./style.css";
 
-const InformationPage = ({ payload }) => {
+import { resetBeerStore } from "services/actions";
+
+const InformationPage = ({ payload, resetBeerStore }) => {
   const data = payload.dataCard;
   return (
     <div className="infopage">
-      <Link to="/" className="fas fa-angle-left backButton icon-left" />
+      <a
+        onClick={() => resetBeerStore()}
+        className="fas fa-angle-left backButton icon-left"
+      >
+        Back
+      </a>
       <h1>Informations of {data.name}</h1>
       <ul>
         <li>tagline: {data.tagline}</li>
@@ -25,4 +32,10 @@ const mapStateToProps = state => ({
   payload: state.BeerReducer
 });
 
-export default connect(mapStateToProps)(InformationPage);
+const mapDispatchToProps = dispatch =>
+  bindActionCreators({ resetBeerStore }, dispatch);
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(InformationPage);
