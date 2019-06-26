@@ -7,7 +7,6 @@ const initialState = {
 };
 
 export const BeerReducer = (state = initialState, action) => {
-  console.log(action);
   switch (action.type) {
     case type.CLICK_SHOW_INFORMATION:
       return {

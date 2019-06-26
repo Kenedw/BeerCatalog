@@ -2,29 +2,30 @@ import React from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 
-import "./style.css";
+import "./style.sass";
 
 import { resetBeerStore } from "services/actions";
 
 const InformationPage = ({ payload, resetBeerStore }) => {
   const data = payload.dataCard;
   return (
-    <div className="infopage">
+    <section className="infopage c-card container">
       <a
         onClick={() => resetBeerStore()}
-        className="fas fa-angle-left backButton icon-left"
+        className="fas fa-angle-left infopage__backButton"
       >
+        {" "}
         Back
       </a>
-      <h1>Informations of {data.name}</h1>
-      <ul>
-        <li>tagline: {data.tagline}</li>
-        <li>description: {data.description}</li>
-        <li>
-          <img src={data.image_url} alt="Card Image" />
-        </li>
-      </ul>
-    </div>
+      <div className="c-card__item c-card__image">
+        <img src={data.image_url} className="c-card__image" alt="Card Image" />
+      </div>
+      <div className="c-card__item">
+        <h2 className="c-card__title">Informations of {data.name}</h2>
+        <p className="c-card__intro">tagline: {data.tagline}</p>
+        <p className="c-card__intro">description: {data.description}</p>
+      </div>
+    </section>
   );
 };
 

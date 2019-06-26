@@ -10,7 +10,7 @@ const card = props => (
     <hr />
     <div className="c-card__item">
       <h2 className="c-card__title">{props.name}</h2>
-      <p className="c-card__intro">{props.tagline}</p>
+      <span className="c-card__intro">{props.tagline}</span>
     </div>
   </section>
 );
