@@ -4,9 +4,7 @@ import HtmlWebpackPlugin from "html-webpack-plugin";
 import UglifyJsPlugin from "uglifyjs-webpack-plugin";
 import FaviconsWebpackPlugin from "favicons-webpack-plugin";
 import WebpackPwaManifest from "webpack-pwa-manifest";
-// import SWPrecacheWebpackPlugin from "sw-precache-webpack-plugin";
-
-const PUBLIC_PATH = "https://beer--catalog.herokuapp.com/";
+import ServiceWorkerWebpackPlugin from "serviceworker-webpack-plugin";
 
 module.exports = {
   entry: [path.join(__dirname, "src", "index.js")],
@@ -92,17 +90,9 @@ module.exports = {
           sizes: [96, 128, 192, 256, 384, 512, 1024]
         }
       ]
+    }),
+    new ServiceWorkerWebpackPlugin({
+      entry: path.join(__dirname, "src/sw.js")
     })
-    // ,
-    // new SWPrecacheWebpackPlugin({
-    //   cacheId: "beercatalog-cache",
-    //   filename: "service-worker.js",
-    //   minify: true,
-    //   dontCacheBustUrlsMatching: /\.\w{8}\./,
-    //   stripPrefix: "dist/",
-    //   navigateFallback: PUBLIC_PATH + "index.html",
-    //   staticFileGlobs: ["src/**/*.{js,css}", "/"],
-    //   staticFileGlobsIgnorePatterns: [/\.map$/, /manifest\.json$/]
-    // })
   ]
 };
