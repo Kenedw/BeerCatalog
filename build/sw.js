@@ -1,0 +1,17 @@
+var serviceWorkerOption = {
+  "assets": [
+    "/93cb8dd08361f9b39df4963b63654a6a.jpg",
+    "/index.js",
+    "/index.html",
+    "/manifest.66c8fd8d29a0f4f1736a18bc0e9b33cc.json",
+    "/icon_1024x1024.637c93bd0116279b18d3cec549beb012.png",
+    "/icon_512x512.37e6eba7e51c4ac8010e5de4dd5e35b3.png",
+    "/icon_384x384.d29c7c97bfc315fc9af74376fbafee19.png",
+    "/icon_256x256.22f95c8a85cb240d8b9a5c17def1f27e.png",
+    "/icon_192x192.7380f9ebfee6213b781dbd9574942a8d.png",
+    "/icon_128x128.02b38f79112c4f5dca9a590e7ec111e3.png",
+    "/icon_96x96.42a0ad6dbc97f6147bf378defb63e1ee.png"
+  ]
+};
+        
+        !function(e){var r={};function o(t){if(r[t])return r[t].exports;var n=r[t]={i:t,l:!1,exports:{}};return e[t].call(n.exports,n,n.exports,o),n.l=!0,n.exports}o.m=e,o.c=r,o.d=function(t,n,e){o.o(t,n)||Object.defineProperty(t,n,{enumerable:!0,get:e})},o.r=function(t){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(t,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(t,"__esModule",{value:!0})},o.t=function(n,t){if(1&t&&(n=o(n)),8&t)return n;if(4&t&&"object"==typeof n&&n&&n.__esModule)return n;var e=Object.create(null);if(o.r(e),Object.defineProperty(e,"default",{enumerable:!0,value:n}),2&t&&"string"!=typeof n)for(var r in n)o.d(e,r,function(t){return n[t]}.bind(null,r));return e},o.n=function(n){var t=n&&n.__esModule?function t(){return n.default}:function t(){return n};return o.d(t,"a",t),t},o.o=function(t,n){return Object.prototype.hasOwnProperty.call(t,n)},o.p="",o(o.s=1)}([function(t,n,e){var r=e(3),o=e(4),i=e(5);function c(t){return r(t)||o(t)||i()}t.exports=c},function(t,n,u){"use strict";u.r(n),function(o){var t=u(0),n=u.n(t),e=!1,r=o.serviceWorkerOption.assets,i=(new Date).toISOString(),c=[].concat(n()(r),["./"]);c=c.map(function(t){return new URL(t,o.location).toString()}),self.addEventListener("install",function(t){t.waitUntil(o.caches.open(i).then(function(t){return t.addAll(c)}).then(function(){0}).catch(function(t){throw console.error(t),t}))}),self.addEventListener("activate",function(t){t.waitUntil(o.caches.keys().then(function(t){return Promise.all(t.map(function(t){return 0===t.indexOf(i)?null:o.caches.delete(t)}))}))}),self.addEventListener("message",function(t){switch(t.data.action){case"skipWaiting":self.skipWaiting&&(self.skipWaiting(),self.clients.claim())}}),self.addEventListener("fetch",function(n){var e=n.request;if("GET"===e.method){var t=new URL(e.url);if(t.origin===location.origin){var r=o.caches.match(e).then(function(t){return t||fetch(e).then(function(t){if(!t||!t.ok)return t;var n=t.clone();return o.caches.open(i).then(function(t){return t.put(e,n)}).then(function(){0}),t}).catch(function(){return"navigate"===n.request.mode?o.caches.match("./"):null})});n.respondWith(r)}}})}.call(this,u(2))},function(t,n){var e;e=function(){return this}();try{e=e||new Function("return this")()}catch(t){"object"==typeof window&&(e=window)}t.exports=e},function(t,n){function e(t){if(Array.isArray(t)){for(var n=0,e=new Array(t.length);n<t.length;n++)e[n]=t[n];return e}}t.exports=e},function(t,n){function e(t){if(Symbol.iterator in Object(t)||"[object Arguments]"===Object.prototype.toString.call(t))return Array.from(t)}t.exports=e},function(t,n){function e(){throw new TypeError("Invalid attempt to spread non-iterable instance")}t.exports=e}]);

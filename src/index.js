@@ -6,4 +6,6 @@ import "./register.js";
 
 import App from "./routes.js";
 
-ReactDOM.render(<App />, document.getElementById("root"));
+if (typeof window !== "undefined") {
+  ReactDOM.render(<App />, document.getElementById("root"));
+}
