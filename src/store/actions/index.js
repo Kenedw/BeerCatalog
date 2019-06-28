@@ -8,3 +8,10 @@ export const clickInformation = value => ({
     open: true
   }
 });
+
+export const resetBeerStore = () => ({
+    type: types.CLICK_BEER_STORE_RESET,
+    payload: {
+      open: false
+    }
+});

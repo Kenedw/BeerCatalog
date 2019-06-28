@@ -1,7 +1,7 @@
-import * as type from "services/actions/types";
+import * as type from "store/actions/types";
 
 const initialState = {
-  title: "BeerCatalog",
+  title: "Beer Catalog",
   dataCard: [],
   open: false
 };
@@ -15,6 +15,10 @@ export const BeerReducer = (state = initialState, action) => {
         dataCard: action.payload.dataCard,
         open: action.payload.open
       };
+    case type.CLICK_BEER_STORE_RESET:
+      return {
+        ...initialState,
+      }
     default:
       return state;
   }

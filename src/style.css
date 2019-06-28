@@ -1,8 +1,11 @@
 body {
   font-family: Trebuchet MS, sans-serif;
   color: #333;
-  background-color: #F3F33F;
   width: 100%;
   margin: 0 auto;
   display: inline-block;
+}
+
+h1 {
+  color:#3F4A54;
 }

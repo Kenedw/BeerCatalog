@@ -1,23 +1,28 @@
 import React from "react";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
+import { bindActionCreators } from "redux";
 
-import "./style.css";
+import "./style.sass";
 
-const InformationPage = ({ payload }) => {
+import { resetBeerStore } from "store/actions";
+
+const InformationPage = ({ payload, resetBeerStore }) => {
   const data = payload.dataCard;
   return (
-    <div className="infopage">
-      <Link to="/" className="fas fa-angle-left backButton icon-left" />
-      <h1>Informations of {data.name}</h1>
-      <ul>
-        <li>tagline: {data.tagline}</li>
-        <li>description: {data.description}</li>
-        <li>
-          <img src={data.image_url} alt="Card Image" />
-        </li>
-      </ul>
-    </div>
+    <section className="infopage c-card container">
+      <a
+        onClick={() => resetBeerStore()}
+        className="fas fa-angle-left infopage__backButton"
+      />
+      <div className="c-card__item c-card__image">
+        <img src={data.image_url} className="c-card__image" alt="Card Image" />
+      </div>
+      <div className="c-card__item">
+        <h2 className="c-card__title">Informations of {data.name}</h2>
+        <p className="c-card__intro"><strong>Tagline:</strong> {data.tagline}</p>
+        <p className="c-card__intro"><strong>Description:</strong> {data.description}</p>
+      </div>
+    </section>
   );
 };
 
@@ -25,4 +30,10 @@ const mapStateToProps = state => ({
   payload: state.BeerReducer
 });
 
-export default connect(mapStateToProps)(InformationPage);
+const mapDispatchToProps = dispatch =>
+  bindActionCreators({ resetBeerStore }, dispatch);
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(InformationPage);

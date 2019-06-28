@@ -5,7 +5,7 @@
 .c-card
   display: inline-block
   margin: 5px
-  margin-bottom: 15px;
+  margin-bottom: 15px
   cursor: pointer
   text-align: left
   background: #fff
@@ -13,30 +13,36 @@
 
   &__image
     max-height: 150px
-    max-width: 100px
  
   &__title
     font-size: 15px
-    font-weight: 700
     line-height: 1.2
     margin: 0
+    margin-bottom: 10px
     padding: 0
-    text-transform: uppercase
 
   &__intro
     margin-bottom: 0
+    font-size: 15px
 
   &__item 
     flex: 1
-    margin: 5px
     text-align: center
-    font-size: 1.5em
-
-.row 
-  flex-direction: row
+    h2
+      overflow: hidden
+      text-overflow: ellipsis
+      white-space: nowrap
+      color: #3F4A54
+    span
+      display: -webkit-box
+      -webkit-box-orient: vertical
+      -webkit-line-clamp: 3
+      overflow: hidden
 
 .container 
-  // max-width: 400px
-  display: flex
+  vertical-align: text-top
+  width: 23vh
+  height: 270px
   border: 1px solid #ccc
-  padding: 15px
+  border-radius: 10px
+  padding: 10px
