@@ -2,9 +2,12 @@ import path from "path";
 
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import UglifyJsPlugin from "uglifyjs-webpack-plugin";
+import FaviconsWebpackPlugin from "favicons-webpack-plugin";
+import WebpackPwaManifest from "webpack-pwa-manifest";
+import ServiceWorkerWebpackPlugin from "serviceworker-webpack-plugin";
 
 module.exports = {
-  entry: ['babel-polyfill',path.join(__dirname, "src", "index.js")],
+  entry: [path.join(__dirname, "src", "index.js")],
   output: {
     path: path.join(__dirname, "build"),
     filename: "index.js"
@@ -15,8 +18,7 @@ module.exports = {
   },
   devServer: {
     contentBase: path.join(__dirname, "src"),
-    port: 3333,
-    historyApiFallback: true,
+    historyApiFallback: true
   },
   optimization: {
     minimizer: [
@@ -41,7 +43,7 @@ module.exports = {
       {
         test: /\.(css|scss|sass)$/,
         use: [
-          "style-loader", // creates style nodes from JS strings
+          "iso-morphic-style-loader", // creates style nodes from JS strings
           "css-loader", // translates CSS into CommonJS
           "sass-loader" // compiles Sass to CSS, using Node Sass by default
         ]
@@ -56,6 +58,41 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: path.join(__dirname, "public", "index.html"),
       inject: false
+    }),
+    new FaviconsWebpackPlugin({
+      logo: path.join(__dirname, "public", "favicon.png"),
+      icons: {
+        android: true,
+        appleIcon: false,
+        appleStartup: false,
+        coast: false,
+        favicons: true,
+        firefox: true,
+        opengraph: false,
+        twitter: false,
+        yandex: false,
+        windows: false
+      }
+    }),
+    new WebpackPwaManifest({
+      name: "Beer Catalog",
+      short_name: "BeerCatalog",
+      orientation: "portrait",
+      display: "standalone",
+      start_url: "/",
+      background_color: "#ffffff",
+      theme_color: "#ffffff",
+      theme_color: "#ffffff",
+      crossorigin: "use-credentials", //can be null, use-credentials or anonymous
+      icons: [
+        {
+          src: path.join(__dirname, "public", "favicon.png"),
+          sizes: [96, 128, 192, 256, 384, 512, 1024]
+        }
+      ]
+    }),
+    new ServiceWorkerWebpackPlugin({
+      entry: path.join(__dirname, "src/sw.js")
     })
   ]
 };
