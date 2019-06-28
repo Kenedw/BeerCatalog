@@ -4,7 +4,7 @@ import { bindActionCreators } from "redux";
 
 import "./style.sass";
 
-import { resetBeerStore } from "services/actions";
+import { resetBeerStore } from "store/actions";
 
 const InformationPage = ({ payload, resetBeerStore }) => {
   const data = payload.dataCard;
@@ -13,17 +13,14 @@ const InformationPage = ({ payload, resetBeerStore }) => {
       <a
         onClick={() => resetBeerStore()}
         className="fas fa-angle-left infopage__backButton"
-      >
-        {" "}
-        Back
-      </a>
+      />
       <div className="c-card__item c-card__image">
         <img src={data.image_url} className="c-card__image" alt="Card Image" />
       </div>
       <div className="c-card__item">
         <h2 className="c-card__title">Informations of {data.name}</h2>
-        <p className="c-card__intro">tagline: {data.tagline}</p>
-        <p className="c-card__intro">description: {data.description}</p>
+        <p className="c-card__intro"><strong>Tagline:</strong> {data.tagline}</p>
+        <p className="c-card__intro"><strong>Description:</strong> {data.description}</p>
       </div>
     </section>
   );

@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import "./style.css";
+import "./style.sass";
 
 function Header({ title }) {
   return (

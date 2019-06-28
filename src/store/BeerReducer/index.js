@@ -1,7 +1,7 @@
-import * as type from "services/actions/types";
+import * as type from "store/actions/types";
 
 const initialState = {
-  title: "BeerCatalog",
+  title: "Beer Catalog",
   dataCard: [],
   open: false
 };

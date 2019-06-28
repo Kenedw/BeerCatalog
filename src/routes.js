@@ -5,6 +5,7 @@ import { Provider } from "react-redux";
 import { Store } from "./store";
 import HomePage from "pages/HomePage";
 import Header from "pages/Header";
+import Footer from "pages/Footer";
 
 export default function Routes() {
   return (
@@ -13,6 +14,7 @@ export default function Routes() {
       <BrowserRouter>
         <Route path="/" exact component={HomePage} />
       </BrowserRouter>
+      <Footer />
     </Provider>
   );
 }
