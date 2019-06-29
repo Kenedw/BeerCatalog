@@ -8,6 +8,7 @@ import imageMoreBeer from "assets/image/more-beer.jpg";
 import { clickInformation } from "store/actions";
 import Api from "services/api";
 import Card from "components/card";
+import SearchBar from "components/SearchBar";
 import InformationPage from "pages/InformationPage";
 
 const Homepage = ({ payload, clickInformation }) => {
@@ -34,7 +35,6 @@ const Homepage = ({ payload, clickInformation }) => {
       props.onClick();
       fetchData(pageCount);
     }
-
     return (
       <Card
         image_url={imageMoreBeer}
@@ -50,6 +50,7 @@ const Homepage = ({ payload, clickInformation }) => {
         <InformationPage />
       ) : (
         <>
+          <SearchBar setData={beerListSet} />
           {beerList.map((data, index) => {
             return (
               <Card

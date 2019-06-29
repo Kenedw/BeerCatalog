@@ -1,11 +1,12 @@
 import React from "react";
-import { BrowserRouter, Route } from "react-router-dom";
+import { BrowserRouter, Route, Redirect } from "react-router-dom";
 import { Provider } from "react-redux";
 
 import { Store } from "./store";
 import HomePage from "pages/HomePage";
 import Header from "pages/Header";
 import Footer from "pages/Footer";
+import NotFound from "pages/NotFound";
 
 export default function Routes() {
   return (
@@ -13,6 +14,8 @@ export default function Routes() {
       <Header />
       <BrowserRouter>
         <Route path="/" exact component={HomePage} />
+        <Route path="/404" component={NotFound} />
+        <Redirect from='*' to='/404' />
       </BrowserRouter>
       <Footer />
     </Provider>
