@@ -6,6 +6,7 @@ import { Store } from "./store";
 import HomePage from "pages/HomePage";
 import Header from "pages/Header";
 import Footer from "pages/Footer";
+import NotFound from "pages/NotFound";
 
 export default function Routes() {
   return (
