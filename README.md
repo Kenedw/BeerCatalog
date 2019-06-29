@@ -1,8 +1,8 @@
 # Objetivo do teste
 
-    1.Implementar um Web App que consulte uma API e exiba uma lista de cervejas. 
-    2.Na listagem deve ser exibido o nome e tagline. Ao selecionar um item na lista, 
-    3.Exibir a tela de detalhes, contendo: nome, tagline, descrição e imagem.
+1. Implementar um Web App que consulte uma API e exiba uma lista de cervejas. 
+2. Na listagem deve ser exibido o nome e tagline. Ao selecionar um item na lista, 
+3. Exibir a tela de detalhes, contendo: nome, tagline, descrição e imagem.
 
 ## Demonstração
 A aplicação esta hospedada com o endereço [https://beer-catalog.netlify.com/](https://beer-catalog.netlify.com/).
