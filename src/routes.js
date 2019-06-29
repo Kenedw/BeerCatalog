@@ -13,6 +13,7 @@ export default function Routes() {
       <Header />
       <BrowserRouter>
         <Route path="/" exact component={HomePage} />
+        <Redirect from='*' to='/' />
       </BrowserRouter>
       <Footer />
     </Provider>
