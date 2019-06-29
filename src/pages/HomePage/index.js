@@ -8,6 +8,7 @@ import imageMoreBeer from "assets/image/more-beer.jpg";
 import { clickInformation } from "store/actions";
 import Api from "services/api";
 import Card from "components/card";
+import Loading from "components/loading";
 import InformationPage from "pages/InformationPage";
 
 const Homepage = ({ payload, clickInformation }) => {
@@ -48,6 +49,8 @@ const Homepage = ({ payload, clickInformation }) => {
     <div className="ui-container">
       {payload.open ? (
         <InformationPage />
+      ) : beerList.length === 0 ? (
+        <Loading />
       ) : (
         <>
           {beerList.map((data, index) => {
