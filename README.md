@@ -55,14 +55,13 @@ Para buildar uma versão de produção, da aplicação.
 - Enviar o código para um repositório git público (github, Bitbucket, Gitlab);
 
 #### Bônus
-
-[ ] Implementar Testes Unitários e Funcionais;
-[ ] Implementar testes Jest;
-[x] Utilizar uma lib para o uso de rotas (React Routes);
-[x] Utilizar uma lib para o gerenciamento de state (Redux);
-[x] Utilizar axios para requisições HTTP na API;
-[ ] Utilizar code coverage (Karma, Istambul, Jasmine);
-[x] Utilizar SASS, POSTCSS ou qualquer outro Transpiler pra CSS;
-[x] Aplicação rodando em um servidor e o acesso a uma URL;
-[x] Implementação de um deploy;
+- [ ] Implementar Testes Unitários e Funcionais;
+- [ ] Implementar testes Jest;
+- [x] Utilizar uma lib para o uso de rotas (React Routes);
+- [x] Utilizar uma lib para o gerenciamento de state (Redux);
+- [x] Utilizar axios para requisições HTTP na API;
+- [ ] Utilizar code coverage (Karma, Istambul, Jasmine);
+- [x] Utilizar SASS, POSTCSS ou qualquer outro Transpiler pra CSS;
+- [x] Aplicação rodando em um servidor e o acesso a uma URL;
+- [x] Implementação de um deploy;
 
