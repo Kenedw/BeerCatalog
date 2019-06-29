@@ -38,7 +38,7 @@ const Homepage = ({ payload, clickInformation }) => {
     return (
       <Card
         image_url={imageMoreBeer}
-        name="Click for more beer"
+        tagline={<strong>Click for more beer</strong>}
         onClick={onClick}
       />
     );
