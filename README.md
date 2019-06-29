@@ -4,7 +4,7 @@
     2.Na listagem deve ser exibido o nome e tagline. Ao selecionar um item na lista, 
     3.Exibir a tela de detalhes, contendo: nome, tagline, descrição e imagem.
 
-## Demostração
+## Demonstração
 A aplicação esta hospedada com o endereço [https://beer-catalog.netlify.com/](https://beer-catalog.netlify.com/).
 
 ## Estrutura de pastas
