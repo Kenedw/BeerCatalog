@@ -9,10 +9,9 @@
   "repository": "https://github.com/Kenedw/BeerCatalog.git",
   "author": "Kened Wanderson Cruz Oliveira",
   "license": "MIT",
-  "scripts": {
+  "scripts": {  
     "build": "babel-node ./node_modules/webpack/bin/webpack --mode production --progress --colors",
-    "dev": "babel-node ./node_modules/webpack-dev-server/bin/webpack-dev-server --open --hot ",
-    "start": "node ./build/index.js",
+    "start": "babel-node ./node_modules/webpack-dev-server/bin/webpack-dev-server --open --hot ",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
