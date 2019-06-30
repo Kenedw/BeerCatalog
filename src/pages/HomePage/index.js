@@ -3,12 +3,12 @@ import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 
 import "./style.sass";
+
 import imageMoreBeer from "assets/image/more-beer.jpg";
 
 import { clickInformation } from "store/actions";
 import Api from "services/api";
 import Card from "components/card";
-import SearchBar from "components/SearchBar";
 import Loading from "components/loading";
 import InformationPage from "pages/InformationPage";
 
@@ -53,7 +53,6 @@ const Homepage = ({ payload, clickInformation }) => {
         <Loading />
       ) : (
         <>
-          <SearchBar setData={beerListSet} />
           {beerList.map((data, index) => {
             return (
               <Card

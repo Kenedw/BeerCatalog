@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Route, Redirect } from "react-router-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { Provider } from "react-redux";
 
 import { Store } from "./store";
@@ -13,8 +13,10 @@ export default function Routes() {
     <Provider store={Store}>
       <Header />
       <BrowserRouter>
-        <Route path="/" exact component={HomePage} />
-        <Redirect from='*' to='/' />
+        <Switch>
+          <Route path="/" exact component={HomePage} />
+          <Route component={NotFound} />
+        </Switch>
       </BrowserRouter>
       <Footer />
     </Provider>
